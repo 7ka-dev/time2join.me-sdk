@@ -1,11 +1,15 @@
 import { GameInfo, GameSession } from "./model/types/gameTypes";
 
 export class Game {
-    static getGameInfo(): GameInfo {
-        return {id: 'gameId', name: 'fameName'}
+
+    constructor() {}
+    dispose() {}
+
+    public getGameInfo(): GameInfo {
+        return {id: 'gameId', name: 'gameName'}
     }
 
-    static start(session: GameSession) {
+    public start(session: GameSession) {
         //todo here send message from iframe into iframe parent
     }
 }
