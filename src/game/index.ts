@@ -3,7 +3,7 @@ import { GameSession, IMessage, JoinMessage, User } from "./model/types/gameType
 /**
  * Game in Iframe
  */
-export class Game {
+export class GameAPI {
     private isReady: boolean = false;
     private user: User | null = null;
     private joinCallBack: (msg: JoinMessage) => void = () => {};
