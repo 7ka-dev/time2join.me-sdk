@@ -2,10 +2,10 @@
 
 создать
 ```js  
-interface GameSession {
+interface Game {
     sessionId: string;
 }
- const sdk = new GameAPI(session: GameSession);
+ const sdk = new GameAPI(game: Game);
 ```
 
 получить данные по клиенту или пустой обьект { } если еще не готовы данные
