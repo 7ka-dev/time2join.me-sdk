@@ -1,1 +1,1 @@
-export { GameAPI } from "./game";
+export { SDK } from "./sdk";

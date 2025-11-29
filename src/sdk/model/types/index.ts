@@ -9,11 +9,11 @@ export interface GameInfo {
     name: string;
 }
 
-export interface GameSession {
-    id: string;
+export interface Game {
+    sessionId: string;
 }
 
-export type Action = 'READY' | 'WAIT' | 'START' | 'JOIN'; 
+export type Action = 'CREATE' | 'START' | 'USER'; 
 
 export interface Payload {
     nameOfGame?: string;

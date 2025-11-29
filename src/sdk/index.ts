@@ -1,57 +1,33 @@
-import { GameSession, IMessage, JoinMessage, User } from "./model/types/gameTypes";
+import { Game, IMessage, JoinMessage, User } from "./model/types";
 
 /**
  * Game in Iframe
  */
-export class GameAPI {
-    private isReady: boolean = false;
+export class SDK {
     private user: User | null = null;
-    private joinCallBack: (msg: JoinMessage) => void = () => {};
 
-    constructor(joinCallback: (msg: JoinMessage) => void) {
-        this.joinCallBack = joinCallback;
+    constructor(game: Game) {
         this.setupMessageListener();
+         send2Parent({
+            action: "CREATE",
+            message: {
+                sessionId: game.sessionId
+            }
+        });
     }
 
     dispose() {
         this.removeMessageListener();
     }
 
-    /**
-     * Say game is loaded and ready to play
-     */
-    public ready() {
-        send2Parent({
-            action: "READY",
-            message: {}
-        });
-    }
-
-    /**
-     * Game created and waiting other players
-     * @param session 
-     */
-    public wait(session: GameSession) {
-        if (!this.isReady) {
-            console.warn('Game not ready!');
-            return;
-        }
-        send2Parent({
-            action: "WAIT",
-            message: {
-                sessionId: session.id
-            }
-        });
+    public getUser(): User | {} {
+        return this.user ?? {};
     }
 
     /**
      * Game started
      */
     public start() {
-        if (!this.isReady) {
-            console.warn('Game not ready!');
-            return;
-        }
         send2Parent({
             action: "START",
             message: {}
@@ -79,11 +55,9 @@ export class GameAPI {
 
     private parseMessage(message: IMessage): void {
         switch (message.action) {
-            case "JOIN": {
+            case "USER": {
                 const payload: JoinMessage = message.message as JoinMessage;
                 this.user = payload.user;
-                this.isReady = true;
-                this.joinCallBack(payload);
                 break;
             }
             default: {
@@ -94,5 +68,6 @@ export class GameAPI {
 }
 
 function send2Parent (message: IMessage) {
+    console.log("send message from iframe", message);
     window.parent.postMessage(message, '*');
 }
