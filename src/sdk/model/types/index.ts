@@ -21,8 +21,9 @@ export interface Payload {
 }
 
 export interface IMessage {
+    type: 'iframeGameEvent';
     action: Action;
-    message: Payload
+    message: Payload;
 }
 
 export interface JoinMessage extends Payload {

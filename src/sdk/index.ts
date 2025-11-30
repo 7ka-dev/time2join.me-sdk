@@ -9,6 +9,7 @@ export class SDK {
     constructor(game: Game) {
         this.setupMessageListener();
          send2Parent({
+            type: 'iframeGameEvent',
             action: "CREATE",
             message: {
                 sessionId: game.sessionId
@@ -29,6 +30,7 @@ export class SDK {
      */
     public start() {
         send2Parent({
+            type: 'iframeGameEvent',
             action: "START",
             message: {}
         });
