@@ -1,9 +1,3 @@
-export interface User {
-    id: string;
-    name: string;
-    icon?: string;
-}
-
 export interface GameInfo {
     id: string;
     name: string;
@@ -26,7 +20,8 @@ export interface IMessage {
     message: Payload;
 }
 
-export interface JoinMessage extends Payload {
-    user: User;
-    status: 'CREATOR' | 'PLAYER';
+export interface User extends Payload{
+    id: string;
+    name: string;
+    icon?: string;
 }
