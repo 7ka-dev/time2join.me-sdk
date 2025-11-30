@@ -1,4 +1,4 @@
-import { Game, IMessage, User } from "./model/types";
+import { Game, IMessage, Payload, User } from "./model/types";
 
 /**
  * Game in Iframe
@@ -58,8 +58,8 @@ export class SDK {
     private parseMessage(message: IMessage): void {
         switch (message.action) {
             case "USER": {
-                const payload: User = message.message as User;
-                this.user = payload;
+                const payload: Payload = message.message as Payload;
+                this.user = payload.user ?? null;
                 break;
             }
             default: {
