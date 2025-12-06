@@ -28,7 +28,7 @@ export class SDK {
     /**
      * Game started
      */
-    public start() {
+    public gameplayStart() {
         send2Parent({
             type: 'iframeGameEvent',
             action: "START",
