@@ -18,7 +18,7 @@
   "keywords": ["sdk", "iframe", "game", "portal", "postMessage"],
   "author": "Sapphire",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "typescript": "~5.7.2"
   },
   "files": [
