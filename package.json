@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "prepare": "tsc",
     "prepublishOnly": "npm run build"
   },
   "keywords": ["sdk", "iframe", "game", "portal", "postMessage"],
