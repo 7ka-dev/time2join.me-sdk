@@ -1,29 +1,24 @@
 {
   "name": "sdk-game",
   "version": "1.0.8",
-  "description": "SDK for connect game into portal",
+  "description": "SDK for connecting games into a portal via iframe",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "tsc",
-    "test": "jest",
-    "prepublishOnly": "npm run build && npm test",
-    "prepare": "npm run build"
+    "prepublishOnly": "npm run build"
   },
-  "keywords": [
-    "typescript",
-    "library",
-    "utilities"
-  ],
+  "keywords": ["sdk", "iframe", "game", "portal", "postMessage"],
   "author": "Sapphire",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^29.5.0",
-    "@types/node": "^20.0.0",
-    "jest": "^29.5.0",
-    "ts-jest": "^29.1.0",
-    "typescript": "~5.8.3",
-    "vite": "^6.2.0"
+    "typescript": "~5.8.3"
   },
   "files": [
     "dist",
